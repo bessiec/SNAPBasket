@@ -109,31 +109,32 @@ class Post(Base):
         return '<Post %r>' % (self.body)
 
 
-class Price_Entry(Base):
-    __tablename__ = "price_entries"
+class Basket_Entry(Base):
+    __tablename__ = "basket_entries"
     id = Column(Integer, primary_key=True)
     food_id = Column(Integer, ForeignKey('food.id'))
-    store_id = Column(Integer, ForeignKey('stores.id'))
-    stores = relationship('Stores')
-    food = relationship('Food')
+    basket_id = Column(Integer, ForeignKey('baskets.id'))
+    baskets = relationship('Baskets', backref="basket_entries")
+    food = relationship('Food', backref="basket_entries")
     
-class Stores(Base):
-    __tablename__ = "stores"
+class Baskets(Base):
+    __tablename__ = "baskets"
     id = Column(Integer, primary_key=True)
-    price_entry = relationship('Price_Entry')
-    store_name = Column(Text)
-    street_address = Column(Text)
-    city = Column(Text)
-    map_link = Column(Text)
-    nearest_metrostop = Column(Text)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    basket_entry = relationship('Basket_Entry')
+    name = Column(String(140))
 
 class Food(Base):
     __tablename__ = "food"
     id = Column(Integer, primary_key=True)
     name = Column(String(140))
     brand = Column(String(140))
+    store_name= Column(String(140))
     measurement = Column(String(140))
     price = Column(String(10))
+    location = Column(Text)
+    transit = Column(Text)
+
 
 def main():
     user = User(nickname = 'beta_tester', email = 'bessiech@usc.edu')

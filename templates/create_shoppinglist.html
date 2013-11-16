@@ -14,7 +14,7 @@
 
          		<label for="select_items"> </label>
          			{% for item in select_item %}
-         				<input type="checkbox" name="added_item{{item.id}}" value="{{item.id}}">{{item.name}} {{ item.brand }} {{ item.measurement }} {{ item.price }} <br>
+         				<input type="checkbox" name="added_item{{item.id}}" value="{{item.id}}">{{ item.name }} {{ item.brand }} {{ item.measurement }} {{ item.price }} {{ item.store_name }} {{ item.location }} {{item.transit}} <br>
          			{% endfor %}
             			<input type="submit">
             		</form>

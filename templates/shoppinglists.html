@@ -8,33 +8,19 @@
 <div class="fb-like" data-href="http://127.0.0.1:5000/shoppinglists.html" data-width="450" data-colorscheme="dark"  data-show-faces="true" data-send="true"></div>
 
   <div class="container">
+    {% for i in range(0, baskets| count) %}   
+        <h2> {{ baskets[i].name }}  </h2>
+            {% for j in range(0, baskets[i].basket_entries| count) %}
+                {{ baskets[i].basket_entries[j].food.name| safe }}<BR>
+                {{ baskets[i].basket_entries[j].food.brand| safe }}
+                {{ baskets[i].basket_entries[j].food.store_name| safe }}
+                {{ baskets[i].basket_entries[j].food.measurement| safe }}
+                {{ baskets[i].basket_entries[j].food.price| safe }}
+                {{ baskets[i].basket_entries[j].food.location| safe }}
+                {{ baskets[i].basket_entries[j].food.transit| safe }}
 
+            {% endfor %}
+    {% endfor %}
 
-        {% for i in range(0, playlists| count) %}   
-            <div class="span8">
-                <h2> {{ playlists[i].title }}  </h2><center>
-                <div id="Playlists-Slider{{i}}" class="carousel slide">
-                    <ol class="carousel-indicators">
-                        {% for j in range(0, playlists[i].playlist_entries| count) %}
-                            <li data-target="#Playlists-Slider{{i}}" data-slide-to="{{j}}"
-                                {% if j == 0 %} class="active" {% endif %}>
-                            </li>
-                        {% endfor %}
-                    </ol>
-                        
-                    <!-- Carousel items -->
-                    <div class="carousel-inner">
-                        {% for j in range(0, playlists[i].playlist_entries| count) %}
-                            <div class="item {% if j == 0 %} active {% endif %}">
-                                {{ playlists[i].playlist_entries[j].film.embed| safe}}</div>
-                        {% endfor %}
-                    </div>
-                    <!-- Carousel nav -->
-                    <a class="carousel-control left" href="#Playlists-Slider{{i}}" data-slide="prev">&lsaquo;</a>
-                    <a class="carousel-control right" href="#Playlists-Slider{{i}}" data-slide="next">&rsaquo;</a>
-                </div></center>
-            </div>
-        {% endfor %}
-  </div>
 
 {% endblock %}

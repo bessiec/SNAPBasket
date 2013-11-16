@@ -10,6 +10,7 @@ from forms import LoginForm, EditForm, PostForm
 from models import User, ROLE_USER, ROLE_ADMIN, Post
 from datetime import datetime
 import models
+import logging
 
 app = Flask(__name__)
 
@@ -114,7 +115,6 @@ def edit():
     return render_template('edit.html',
         form = form)
 
-#Write out what this does 
 @oid.after_login
 def after_login(resp):
     if resp.email is None or resp.email == "":
@@ -153,11 +153,11 @@ def user(nickname):
         flash('User ' + nickname + ' not found.')
         return redirect(url_for('index'))
     posts = user.posts
-    playlists = models.session.query(models.Playlists).filter_by(user_id=g.user.id).all()
+    baskets = models.session.query(models.Baskets).filter_by(user_id=g.user.id).all()
     return render_template('user.html',
         user = user,
         posts = posts,
-        playlists = playlists)
+        baskets = baskets)
 
 
 #functions the follow and unfollow a user
@@ -202,11 +202,10 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-#Page that shows all current playlists and their associated films
 @app.route('/shopping_lists')
 def show_shoppinglists():
-    shopping_lists = models.session.query(models.Shopping_Lists).all()
-    return render_template('shopping_lists.html', shopping_lists=shopping_lists) 
+    baskets = models.session.query(models.Baskets).all()
+    return render_template('shoppinglists.html', baskets = baskets) 
 
 @app.route('/food_items')
 def show_foods():
@@ -220,13 +219,13 @@ def create_shoppinglist():
 
 @app.route('/make_shoppinglist')
 def make_shoppinglist():
-    new_shoppinglist_name = request.args.get("shopping_list_name")
+    shoppinglist_name = request.args.get("shopping_list_name")
     added_item = request.args.get("added_item")
-    added_playlist = models.Playlists(title=new_playlist_name, user_id=g.user.id)
-    models.session.add(added_playlist) 
+    new_shoppinglist = models.Baskets(name=shoppinglist_name, user_id=g.user.id)
+    models.session.add(new_shoppinglist) 
     models.session.commit()
-    models.session.refresh(added_playlist)
-
+    models.session.refresh(new_shoppinglist)
+    return render_template("shoppinglist_created.html")
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):

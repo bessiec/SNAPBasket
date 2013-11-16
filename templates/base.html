@@ -50,7 +50,7 @@
              <li class="active"><a href="{{ url_for('index') }}">Home</a>
          <!--         <a href="{{ url_for('index') }}">Home</a> -->
                 <li><a href="/food_items">See Stores and Prices</a></l1>
-                <li><a href="/store_inventories">See Shopping Lists </a></l1>
+                <li><a href="/shopping_lists">See Shopping Lists </a></l1>
                       {% if g.user.is_authenticated() %}
                 <li><a href="/create_shoppinglist">Create a Shopping List</a></li>
                 <li><a href="{{ url_for('user', nickname = g.user.nickname) }}">Your Profile and Shopping List</a></li>

@@ -2,6 +2,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h2>SNAP News </h2>
+    <p>As of November 2013, Congress failed to renew the SNAP supplemental funding from American Recovery Act.</p>
+
+    <b>What this means:</b> There will be an average of an $11 reduction per monthly basis on monthly EBT benefits.
 <script type="text/javascript">
 function set_openid(openid, pr)
 {
@@ -16,12 +20,16 @@ function set_openid(openid, pr)
 }
 </script>
 
+
 <h1>Sign In</h1>
 <p>Welcome to SNAPBasket.  Please sign in to create a user page (so you can save your playlists for future reference), post tips for others in the community, or create your own shopping list (public).  Otherwise, feel free to look at some sample shopping lists.
+
+
+
 <form action="" method="post" name="login">
     {{form.hidden_tag()}}
     <p>
-        Please enter your OpenID, or select one of the providers below:<br>
+        Please use one of the providers below: <br>
         {{form.openid(size=80)}}
         {% for error in form.errors.openid %}
         <span style="color: red;">[{{error}}]</span>
@@ -33,4 +41,6 @@ function set_openid(openid, pr)
     <p>{{form.remember_me}} Remember Me</p>
     <p><input type="submit" value="Sign In"></p>
 </form>
+
+    
 {% endblock %}
