@@ -1,0 +1,13 @@
+
+{% extends "base.html" %}
+    <h1>Staple Selections</h1>	
+
+   		{% block content %}
+	  		
+	  		{% for item in all_items %} 
+	  		
+	  			{{ item.name }} {{ item.brand }} {{ item.measurement }} {{ item.price }} <br>
+  			
+  			{% endfor %}
+		
+		{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+Playlist Successfully Created!  
+
+Check out your playlist on your <a href="{{ url_for('user', nickname = g.user.nickname) }}">user profile</a> or in the <a href="/playlists">See All Playlists</a> section of the site.  
+
+
+
+{% endblock %}
