@@ -1,0 +1,58 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+    <tr valign="top">
+        <td><img src="{{user.avatar(128)}}"></td>
+        <td>
+            <h1>User: {{user.nickname}}</h1>
+            {% if user.about_me %}<p>{{user.about_me}}</p>{% endif %}
+            {% if user.last_seen %}<p><i>Last seen on: {{user.last_seen}}</i></p>{% endif %}
+                <p>{{user.followers.count()}} followers | 
+                {% if user.id == g.user.id %}
+                    <a href="{{url_for('edit')}}">Edit your profile</a>
+                {% elif not g.user.is_following(user) %}
+                    <a href="{{url_for('follow', nickname = user.nickname)}}">Follow</a>
+                {% else %}
+                    <a href="{{url_for('unfollow', nickname = user.nickname)}}">Unfollow</a>
+                {% endif %}
+        </td>
+    </tr>
+</table>
+<hr>
+{% for post in posts %}
+    {% include 'post.html' %}
+{% endfor %}
+
+
+  <div class="container">
+  {% for i in range(0, playlists| count) %}   
+            <div class="span8">
+                <h2> {{ playlists[i].title }}  </h2><center>
+                <div id="Playlists-Slider{{i}}" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        {% for j in range(0, playlists[i].playlist_entries| count) %}
+                            <li data-target="#Playlists-Slider{{i}}" data-slide-to="{{j}}"
+                                {% if j == 0 %} class="active" {% endif %}>
+                            </li>
+                        {% endfor %}
+                    </ol>
+                        
+                <!--Carousel items -->
+                    <div class="carousel-inner">
+                        {% for j in range(0, playlists[i].playlist_entries| count) %}
+                            <div class="item {% if j == 0 %} active {% endif %}">
+                                {{ playlists[i].playlist_entries[j].film.embed| safe}}</div>
+                        {% endfor %}
+                    </div>
+                <!--Carousel nav -->
+                    <a class="carousel-control left" href="#Playlists-Slider{{i}}" data-slide="prev">&lsaquo;</a>
+                    <a class="carousel-control right" href="#Playlists-Slider{{i}}" data-slide="next">&rsaquo;</a>
+                </div></center>
+            </div>
+        {% endfor %}
+
+  </div> 
+
+{% endblock %}

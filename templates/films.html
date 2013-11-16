@@ -1,0 +1,14 @@
+
+{% extends "base.html" %}
+   {% block content %}
+
+            <h1>All Films</h1>	
+<div class="fb-like" data-href="http://127.0.0.1:5000/films.html" data-width="450" data-colorscheme="dark"  data-show-faces="true" data-send="true"></div>
+	<center>
+  		{% for film in all_films %} 
+  			<h2> {{ film.title }} </h2> <br>
+  				{{ film.embed| safe }} 
+  		{% endfor %}
+  	</center>
+
+{% endblock %}

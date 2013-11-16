@@ -1,0 +1,75 @@
+<html>
+  <head>
+
+
+<!--     Implementing  Bootstrap-->    
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/mycss.css" rel="stylesheet">
+
+<!-- Google Font -->
+
+
+
+    {% if title %}
+    <title>{{title}} </title>
+    {% else %}
+
+    <title>SNAPBasket</title>
+    {% endif %}
+
+  </head>
+  <body>
+
+
+      <!---calling jQuery CDN and back-up -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+
+
+
+        <!--     Facebook Javascript SDK  -->
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <div class="navbar">
+        <div class="navbar-inner">
+            <a class="brand" href="{{ url_for('index') }}">SNAPBasket</a>
+            <ul class="nav">
+             <li class="active"><a href="{{ url_for('index') }}">Home</a>
+         <!--         <a href="{{ url_for('index') }}">Home</a> -->
+                <li><a href="/storelist">See Stores and Prices</a></l1>
+                <li><a href="/store_inventories">See Shopping Lists </a></l1>
+                      {% if g.user.is_authenticated() %}
+                <li><a href="/create_playlist">Create a Shopping List</a></li>
+                <li><a href="{{ url_for('user', nickname = g.user.nickname) }}">Your Profile and Shopping List</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        {% endif %}
+     </div>
+    </div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+
+  </body>
+</html>

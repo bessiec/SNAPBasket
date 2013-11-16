@@ -1,0 +1,40 @@
+<!-- extend base layout -->
+
+
+{% extends "base.html" %}
+   {% block content %}
+            <h1>All Playlists and Films </h1>	
+
+<div class="fb-like" data-href="http://127.0.0.1:5000/playlists.html" data-width="450" data-colorscheme="dark"  data-show-faces="true" data-send="true"></div>
+
+  <div class="container">
+
+
+        {% for i in range(0, playlists| count) %}   
+            <div class="span8">
+                <h2> {{ playlists[i].title }}  </h2><center>
+                <div id="Playlists-Slider{{i}}" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        {% for j in range(0, playlists[i].playlist_entries| count) %}
+                            <li data-target="#Playlists-Slider{{i}}" data-slide-to="{{j}}"
+                                {% if j == 0 %} class="active" {% endif %}>
+                            </li>
+                        {% endfor %}
+                    </ol>
+                        
+                    <!-- Carousel items -->
+                    <div class="carousel-inner">
+                        {% for j in range(0, playlists[i].playlist_entries| count) %}
+                            <div class="item {% if j == 0 %} active {% endif %}">
+                                {{ playlists[i].playlist_entries[j].film.embed| safe}}</div>
+                        {% endfor %}
+                    </div>
+                    <!-- Carousel nav -->
+                    <a class="carousel-control left" href="#Playlists-Slider{{i}}" data-slide="prev">&lsaquo;</a>
+                    <a class="carousel-control right" href="#Playlists-Slider{{i}}" data-slide="next">&rsaquo;</a>
+                </div></center>
+            </div>
+        {% endfor %}
+  </div>
+
+{% endblock %}

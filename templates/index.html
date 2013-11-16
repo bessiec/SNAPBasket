@@ -1,13 +1,42 @@
-<html>
-	<head>
-		{% if title %}
-		<title>{{title}} - Item Lookup</title>
-		{% else %}
-		<title>SNAPBasket </title>
-		{% endif %}
-	</head>
-		<body>
-			Hello World
-		</body>
+{% extends "base.html" %}
 
-</html>
+{% block content %}
+
+<div class="fb-like" data-href="http://127.0.0.1:5000/index.html" data-width="450" data-colorscheme="dark" data-show-faces="true" data-send="true"></div>
+
+<h1>Hi, {{g.user.nickname}}!</h1>
+<form action="" method="post" name="post">
+    {{form.hidden_tag()}}
+    <table>
+        <tr>
+            <td>Say something:</td>
+            <td>{{ form.post(size = 30, maxlength = 140) }}</td>
+            <td>
+            {% for error in form.errors.post %}
+            <span style="color: red;">[{{error}}]</span><br>
+            {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Post!"></td>
+            <td></td>
+        </tr>
+    </table>
+</form>
+
+
+{% for post in posts %}
+    {% include 'post.html' %}
+{% endfor %}
+
+<!-- {% if posts.has_prev %}
+	<a href="{{ url_for('index', page = posts) }}"><< Newer posts</a>
+	{% else %}<< Newer posts
+{% endif %} | 
+	{% if posts.has_next %}
+	<a href="{{ url_for('index', page = posts) }}">Older posts >></a>
+	{% else %}Older posts >>
+{% endif %} -->
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+   {% block content %}
+
+   <h2> Create Playlist Name </h2>
+
+   <form action="/make_playlist">
+   	<label for="playlist_name">Enter Playlist Name</label>
+   		<input type="text" name="playlist_name" />
+
+		<div id="container">
+
+	<h2> Select Films </h2>
+
+		<label for="select_films"> </label>
+			{% for film in select_films %}
+				<input type="checkbox" name="added_film{{film.id}}" value="{{film.id}}">{{film.title}}<br>
+			{% endfor %}
+   			<input type="submit">
+   		</form>
+   <h2><a href="/films">See Films</a>
+      
+
+   {% endblock %}

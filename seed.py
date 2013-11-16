@@ -24,8 +24,9 @@ def load_price_entries(session):
 		filename_stores = csv.reader(f, delimiter=",")
 		for storename_row in filename_stores:
 			new_storename_row = models.Price_Entry(food_id=storename_row[1], store_id=storename_row[2])
-				#  street_address=storename_row[4]) city=storename_row=[5],
-				# map_link=storename_row[6], nearest_metrostop=storename_row[7])
+			session.add(new_storename_row)
+		session.commit()
+		session.refresh(new_storename_row)
 
 
 def load_stores(session):
