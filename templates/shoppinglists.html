@@ -11,13 +11,13 @@
     {% for i in range(0, baskets| count) %}   
         <h2> {{ baskets[i].name }}  </h2>
             {% for j in range(0, baskets[i].basket_entries| count) %}
-                {{ baskets[i].basket_entries[j].food.name| safe }}<BR>
+                {{ baskets[i].basket_entries[j].food.name| safe }}
                 {{ baskets[i].basket_entries[j].food.brand| safe }}
                 {{ baskets[i].basket_entries[j].food.store_name| safe }}
                 {{ baskets[i].basket_entries[j].food.measurement| safe }}
                 {{ baskets[i].basket_entries[j].food.price| safe }}
                 {{ baskets[i].basket_entries[j].food.location| safe }}
-                {{ baskets[i].basket_entries[j].food.transit| safe }}
+                {{ baskets[i].basket_entries[j].food.transit| safe }} <br><br>
 
             {% endfor %}
     {% endfor %}

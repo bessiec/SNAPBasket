@@ -5,20 +5,38 @@
        <h2> Create a Shopping List</h2>
 
             <form action="/make_shoppinglist">
-            	<label for="playlist_name">Enter a name for your shopping list</label>
+            	<label for="shoppinglist_name">Enter a name for your shopping list</label>
             		<input type="text" name="shoppinglist_name" />
 
-         		<div id="container">
+                        <h2> Select Items </h2>
 
-         	<h2> Select Items </h2>
+                 		     <label for="select_items"> </label>
+                     			{% for item in select_item %}
+                     				<input type="checkbox" name="added_item{{item.id}}" value="{{item.id}}">{{ item.name }} {{ item.brand }} {{ item.measurement }} {{ item.price }} {{ item.store_name }} {{ item.location }} {{item.transit}} <br>
+                     			{% endfor %}
+                            <input type="submit">
+            </form>
 
-         		<label for="select_items"> </label>
-         			{% for item in select_item %}
-         				<input type="checkbox" name="added_item{{item.id}}" value="{{item.id}}">{{ item.name }} {{ item.brand }} {{ item.measurement }} {{ item.price }} {{ item.store_name }} {{ item.location }} {{item.transit}} <br>
-         			{% endfor %}
-            			<input type="submit">
-            		</form>
-            <h2><a href="/food_items">See Food Items</a>
       
-   
-     {% endblock %}
+{% endblock %}
+
+
+
+
+
+<!--    <form action="/make_playlist">
+    <label for="playlist_name">Enter Playlist Name</label>
+        <input type="text" name="playlist_name" />
+
+        <div id="container">
+
+    <h2> Select Films </h2>
+
+        <label for="select_films"> </label>
+            {% for film in select_films %}
+                <input type="checkbox" name="added_film{{film.id}}" value="{{film.id}}">{{film.title}}<br>
+            {% endfor %}
+            <input type="submit">
+        </form>
+ -->
+    

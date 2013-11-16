@@ -36,8 +36,7 @@ OPENID_PROVIDERS = [
     { 'name': 'Flickr', 'url': 'http://www.flickr.com/<username>' },
     { 'name': 'MyOpenID', 'url': 'http://www.myopenid.com' }]
 
-# import os
-# basedir = os.path.abspath(os.path.dirname(__file__))
+
 
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
@@ -153,7 +152,7 @@ def user(nickname):
         flash('User ' + nickname + ' not found.')
         return redirect(url_for('index'))
     posts = user.posts
-    baskets = models.session.query(models.Baskets).filter_by(user_id=g.user.id).all()
+    baskets = models.session.query(models.Baskets).filter_by(user_id = g.user.id).all()
     return render_template('user.html',
         user = user,
         posts = posts,
@@ -219,13 +218,27 @@ def create_shoppinglist():
 
 @app.route('/make_shoppinglist')
 def make_shoppinglist():
-    shoppinglist_name = request.args.get("shopping_list_name")
+    new_shoppinglist_name = request.args.get("shoppinglist_name")
     added_item = request.args.get("added_item")
-    new_shoppinglist = models.Baskets(name=shoppinglist_name, user_id=g.user.id)
-    models.session.add(new_shoppinglist) 
+    added_shoppinglist = models.Baskets(name=new_shoppinglist_name, user_id=g.user.id)
+    models.session.add(added_shoppinglist) 
     models.session.commit()
-    models.session.refresh(new_shoppinglist)
+    models.session.refresh(added_shoppinglist)
+
+    counter = 0
+    for argument in request.args:
+        if argument[0:10] == "added_item":
+            request.args[argument]
+            new_basket_row = models.Basket_Entry(basket_id=added_shoppinglist.id,
+                food_id=request.args[argument])
+            counter += 1
+            models.session.add(new_basket_row)
+    models.session.commit()
+
     return render_template("shoppinglist_created.html")
+
+
+
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):

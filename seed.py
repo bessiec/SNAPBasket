@@ -14,33 +14,33 @@ def load_food(session):
 		filename_food = csv.reader(f, delimiter=",")
 		for food_row in filename_food:
 			new_food_row = models.Food(name=food_row[0], brand=food_row[1], measurement=food_row[2], 
-				price=food_row[3])
+				price=food_row[3], store_name=food_row[4], location=food_row[5], transit=food_row[6])
 			session.add(new_food_row)
 		session.commit()
 		session.refresh(new_food_row)
 
-def load_price_entries(session):
-	with open ('stores.csv', 'rU') as f:
+def load_basket_entries(session):
+	with open ('baskets.csv', 'rU') as f:
 		filename_stores = csv.reader(f, delimiter=",")
-		for storename_row in filename_stores:
-			new_storename_row = models.Price_Entry(food_id=storename_row[1], store_id=storename_row[2])
-			session.add(new_storename_row)
+		for basketname_row in filename_stores:
+			new_basketname_row = models.Basket_Entry(food_id=basketname_row[1], basket_id=basketname_row[2])
+			session.add(new_basketname_row)
 		session.commit()
-		session.refresh(new_storename_row)
+		session.refresh(new_basketname_row)
 
 
-def load_stores(session):
+def load_baskets(session):
 	user = 1
-	store_names = ["Ralphs", "Fresh and Easy Neighborhood Market", "Superior Super Warehouse", "Smart and Final"]
-	for name in store_names:
-		name = models.Stores(store_name=name)
+	basket_names = ["Example 1"]
+	for name in basket_names:
+		name = models.Baskets(name=name)
 		session.add(name)
 	session.commit()
 
 def main(session):
 	load_food(session)
-	load_price_entries(session)
-	load_stores(session)
+	load_basket_entries(session)
+	load_baskets(session)
 
 if __name__ == "__main__":
 	main(s)

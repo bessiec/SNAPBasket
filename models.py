@@ -75,7 +75,6 @@ class User(Base):
     def __repr__(self):
         return '<User %r>' % (self.nickname)    
 
-#what is hexdigest 
     def avatar(self, size):
         return 'http://www.gravatar.com/avatar/' + md5(self.email).hexdigest() + '?d=mm&s=' + str(size)
 
