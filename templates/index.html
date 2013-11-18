@@ -4,12 +4,15 @@
 
 <div class="fb-like" data-href="http://127.0.0.1:5000/index.html" data-width="450" data-colorscheme="dark" data-show-faces="true" data-send="true"></div>
 
+    
+<p><img src="{{ url_for('static', filename='css/SNAPbasket.png') }}"></p>
+
     <h1>Hi, {{g.user.nickname}}!</h1>
     <form action="" method="post" name="post">
         {{form.hidden_tag()}}
         <table>
             <tr>
-                <td>Say something:</td>
+                <td>Do you have any tips or advice for the SNAPBasket community?</td>
                 <td>{{ form.post(size = 30, maxlength = 140) }}</td>
                 <td>
                 {% for error in form.errors.post %}
@@ -30,6 +33,9 @@
         {% include 'post.html' %}
     {% endfor %}
 
+
+
+    <h2>SNAPNews</h2>
     <p>As of November 2013, Congress failed to renew the SNAP supplemental funding from American Recovery Act.</p>
 
     <b>What this means:</b> There will be an average of an $11 reduction per monthly basis on monthly EBT benefits.

@@ -238,8 +238,6 @@ def make_shoppinglist():
     return render_template("shoppinglist_created.html")
 
 
-
-
 @app.teardown_appcontext
 def shutdown_session(exception=None):
     models.session.remove()

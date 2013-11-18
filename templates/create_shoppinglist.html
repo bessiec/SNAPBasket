@@ -12,7 +12,14 @@
 
                  		     <label for="select_items"> </label>
                      			{% for item in select_item %}
-                     				<input type="checkbox" name="added_item{{item.id}}" value="{{item.id}}">{{ item.name }} {{ item.brand }} {{ item.measurement }} {{ item.price }} {{ item.store_name }} {{ item.location }} {{item.transit}} <br>
+                     				<input type="checkbox" name="added_item{{item.id}}" value="{{item.id}}">
+                                    {{ item.name }} | 
+                                    Brand: {{ item.brand }} | 
+                                    Measure: {{ item.measurement }} | 
+                                    Price: {{ item.price }} | 
+                                    Store: {{ item.store_name }} | 
+                                    Location: {{ item.location }} | 
+                                    Nearest Transit: {{item.transit}} <br><br>
                      			{% endfor %}
                             <input type="submit">
             </form>
@@ -22,21 +29,3 @@
 
 
 
-
-
-<!--    <form action="/make_playlist">
-    <label for="playlist_name">Enter Playlist Name</label>
-        <input type="text" name="playlist_name" />
-
-        <div id="container">
-
-    <h2> Select Films </h2>
-
-        <label for="select_films"> </label>
-            {% for film in select_films %}
-                <input type="checkbox" name="added_film{{film.id}}" value="{{film.id}}">{{film.title}}<br>
-            {% endfor %}
-            <input type="submit">
-        </form>
- -->
-    

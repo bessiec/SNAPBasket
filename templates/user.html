@@ -31,12 +31,12 @@
         <h2> {{ baskets[i].name }}  </h2>
             {% for j in range(0, baskets[i].basket_entries| count) %}
                 {{ baskets[i].basket_entries[j].food.name| safe }}<BR>
-                {{ baskets[i].basket_entries[j].food.brand| safe }}
-                {{ baskets[i].basket_entries[j].food.store_name| safe }}
-                {{ baskets[i].basket_entries[j].food.measurement| safe }}
-                {{ baskets[i].basket_entries[j].food.price| safe }}
-                {{ baskets[i].basket_entries[j].food.location| safe }}
-                {{ baskets[i].basket_entries[j].food.transit| safe }}
+                Brand: {{ baskets[i].basket_entries[j].food.brand| safe }} | 
+                Store: {{ baskets[i].basket_entries[j].food.store_name| safe }} |
+                Measurement: {{ baskets[i].basket_entries[j].food.measurement| safe }} |
+                Price: {{ baskets[i].basket_entries[j].food.price| safe }} | 
+                Location: {{ baskets[i].basket_entries[j].food.location| safe }} | 
+                Nearest Transit Stop: {{ baskets[i].basket_entries[j].food.transit| safe }} 
 
             {% endfor %}
     {% endfor %}

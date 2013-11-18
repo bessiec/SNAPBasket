@@ -9,7 +9,13 @@
 
 		  		{% for item in all_items %} 
 		  		
-		  			{{ item.name }} {{ item.brand }} {{ item.measurement }} {{ item.price }} {{ item.store_name }} {{ item.location }} {{item.transit}}<br>
+		  			{{ item.name }} 
+		  			Brand: {{ item.brand }} | 
+		  			Measurement: {{ item.measurement }} | 
+		  			Price: {{ item.price }} | 
+		  			Store: {{ item.store_name }} | 
+		  			Location: {{ item.location }} | 
+		  			Nearest Transit Stop: {{item.transit}}<br><br>
 	  			
 	  			{% endfor %}
 			
