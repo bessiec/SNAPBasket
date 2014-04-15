@@ -13,7 +13,6 @@ session = scoped_session(sessionmaker(bind= engine,
                                         autocommit= False,
                                         autoflush = False))
 
-#figure out what this does
 Base = declarative_base()
 Base.query = session.query_property()
 

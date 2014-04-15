@@ -44,6 +44,7 @@ SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 #The SQLALCHEMY_DATABASE_URI is the path of our database file.
 #The SQLALCHEMY_MIGRATE_REPO is the folder in which we will store the SQLAlchemy-migrate data files
 
+
 @app.errorhandler(404)
 def internal_error(error):
     return render_template('404.html'), 404
@@ -52,6 +53,7 @@ def internal_error(error):
 def internal_error(error):
     models.session.rollback()
     return render_template('500.html'), 500
+
 
 @lm.user_loader
 def load_user(id):
@@ -65,29 +67,69 @@ def before_request():
         models.session.add(g.user)
         models.session.commit()
 
-@app.route('/', methods = ['GET', 'POST'])
-@app.route('/index', methods = ['GET', 'POST'])
-@app.route('/index/<int:page>', methods = ['GET', 'POST'])
+#The following handlers before the next break have to do with the main page
+
+
+
+@app.route('/')
+@app.route('/index')
+def index():
+    return render_template('index.html')
+
+# @app.route('/snap_info')
+# def index():
+#     return render_template('snap_info.html')
+
+# @app.route('/product_research')
+# def index():
+#     return render_template('product_research.html')
+
+@app.route('/story')
+def story():
+    return render_template('our_story.html')
+
+@app.route('/team')
+def team():
+    return render_template('about_us.html')
+
+
+# @app.route('/contact_us')
+# def index():
+#     return render_template('contact_us.html')
+
+
+
+
+
+#The following handlers below all have to do with the prototype 
+
+@app.route('/demo', methods = ['GET', 'POST'])
+@app.route('/demo/<int:page>', methods = ['GET', 'POST'])
 @login_required
-def index(page = 1):
+def demo(page = 1):
     form = PostForm()
     if form.validate_on_submit():
         post = Post(body = form.post.data, timestamp = datetime.utcnow(), author = g.user)
         models.session.add(post)
         models.session.commit()
         flash('Your post is now live!')
-        return redirect(url_for('index'))
+        return redirect(url_for('demo'))
     posts = g.user.posts
-    return render_template('index.html',
-        title = 'Home',
+    return render_template('demo.html',
+        title = 'Demo',
         form = form,
         posts = posts)
+
+
+# @app.route('/demo_faq')
+# def index():
+#     return render_template('demo_faq.html')
 
 @app.route('/login', methods = ['GET', 'POST'])
 @oid.loginhandler
 def login():
     if g.user is not None and g.user.is_authenticated():
-        return redirect(url_for('index'))
+        return redirect(url_for('demo'))
     form = LoginForm()
     if form.validate_on_submit():
         session['remember_me'] = form.remember_me.data
@@ -128,7 +170,6 @@ def after_login(resp):
         user = User(nickname = nickname, email = resp.email, role = ROLE_USER)
         models.session.add(user)
         models.session.commit()
-        # have the user follow him/herself
         models.session.add(user.follow(user))
         models.session.commit()
     remember_me = False
@@ -136,13 +177,13 @@ def after_login(resp):
         remember_me = session['remember_me']
         session.pop('remember_me', None)
     login_user(user, remember = remember_me)
-    return redirect(request.args.get('next') or url_for('index'))
+    return redirect(request.args.get('next') or url_for('demo'))
     remember_me = False
     if 'remember_me' in session:
         remember_me = session['remember_me']
         session.pop('remember_me', None)
     login_user(user, remember = remember_me)
-    return redirect(request.args.get('next') or url_for('index'))
+    return redirect(request.args.get('next') or url_for('demo'))
 
 @app.route('/user/<nickname>')
 @login_required
@@ -150,7 +191,7 @@ def user(nickname):
     user = User.query.filter_by(nickname = nickname).first()
     if user == None:
         flash('User ' + nickname + ' not found.')
-        return redirect(url_for('index'))
+        return redirect(url_for('app'))
     posts = user.posts
     baskets = models.session.query(models.Baskets).filter_by(user_id = g.user.id).all()
     return render_template('user.html',
@@ -159,7 +200,13 @@ def user(nickname):
         baskets = baskets)
 
 
-#functions the follow and unfollow a user
+
+@app.route('/smart_final')
+def smart_final():
+    smart_final_foods = models.session.query(models.Food).all()
+    return render_template("smart_final.html")
+
+
 @app.route('/follow/<nickname>')
 def follow(nickname):
     user = User.query.filter_by(nickname = nickname).first()
@@ -237,6 +284,35 @@ def make_shoppinglist():
 
     return render_template("shoppinglist_created.html")
 
+
+#Handlers for Individual Stores in USC Area for MVP Example
+#code not completed 
+
+@app.route('/ralphs')
+def ralphs():
+    ralphs_foods = models.session.query(models.Food).all()
+    return render_template("ralphs.html")
+
+
+@app.route('/superior')
+def superior():
+    superior_foods = models.session.query(models.Food).all()
+    return render_template("superior.html")
+
+@app.route('/food4less')
+def food_4_less():
+    food_4_less = models.session.query(models.Food).all()
+    return render_template("food4less.html")
+
+@app.route('/fresh_easy')
+def fresh_easy():
+    fresh_easy_foods = models.session.query(models.Food).all()
+    return render_template("fresh_easy.html")
+
+@app.route('/smart_final')
+def smart_final():
+    smart_final_foods = models.session.query(models.Food).all()
+    return render_template("smart_final.html")
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):

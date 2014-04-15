@@ -1,25 +1,30 @@
 
 {% extends "base.html" %}
 	{% block content %}
+
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 		  		
 		<h1>Staple Selections</h1>	
 
 	  	  <h3>List of food items, prices, and store locations currently in the database.</h3>
 
-
-		  		{% for item in all_items %} 
-		  		
-		  			{{ item.name }} 
-		  			Brand: {{ item.brand }} | 
-		  			Measurement: {{ item.measurement }} | 
-		  			Price: {{ item.price }} | 
-		  			Store: {{ item.store_name }} | 
-		  			Location: {{ item.location }} | 
-		  			Nearest Transit Stop: {{item.transit}}<br><br>
-	  			
-	  			{% endfor %}
-			
-	
+	  	  		<div class="table-responsive">
+	  	  		
+						  		{% for item in all_items %} 
+						  			
+							  			<td>{{ item.name }} </td> 
+							  			<td>Brand: {{ item.brand }}</td>
+							  			<td>Measurement: {{ item.measurement }}</td>
+							  			<td>Price: {{ item.price }}</td>
+							  			<td>Store: {{ item.store_name }}</td>
+							  			<td>Location: {{ item.location }}</td>
+							  			<td>Nearest Transit Stop: {{item.transit}}</td><p>
+					  			
+					  			{% endfor %}
+			  				</tr>
+			  			</tbody>
+					</table>
+				</div>
 
 
 
