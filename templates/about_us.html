@@ -1,8 +1,8 @@
 <!-- extend base layout -->
 {% extends "base.html" %}
-
 {% block content %}
     
+
 
 <!--=== Breadcrumbs ===-->
 <div class="breadcrumbs margin-bottom-40">
@@ -11,16 +11,15 @@
         <ul class="pull-right breadcrumb">
             <li><a href="{{ url_for('story') }}">Our Story</a></li>
             <li><a href="{{ url_for('team') }}">Team</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
             <li class="active"></li>
         </ul>
     </div><!--/container-->
 </div><!--/breadcrumbs-->
 <!--=== End Breadcrumbs ===-->
 
-<div class="container"> 
-
 <!-- Meer Our Team -->
+<div class="container"> 
     <div class="centered">
     <div class="headline"><h2>Meet Our Team</h2></div>
     <div class="row team">

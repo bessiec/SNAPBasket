@@ -93,12 +93,9 @@ def team():
     return render_template('about_us.html')
 
 
-# @app.route('/contact_us')
-# def index():
-#     return render_template('contact_us.html')
-
-
-
+@app.route('/contact')
+def contact():
+    return render_template('contact_us.html')
 
 
 #The following handlers below all have to do with the prototype 
