@@ -14,13 +14,13 @@ import logging
 
 app = Flask(__name__)
 
-#find out exact what all of this is
 lm = LoginManager()
 lm.init_app(app)
 lm.login_view = 'login'
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 oid = OpenID(app, os.path.join(basedir, 'tmp'))
+
 
 app.csrf_enabled = True
 app.secret_key = "rainbowssunshineunicorns2512351"
@@ -43,6 +43,7 @@ SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 
 #The SQLALCHEMY_DATABASE_URI is the path of our database file.
 #The SQLALCHEMY_MIGRATE_REPO is the folder in which we will store the SQLAlchemy-migrate data files
+
 
 
 @app.errorhandler(404)

@@ -24,6 +24,7 @@ ROLE_USER = 0
 ROLE_ADMIN = 1
 
 
+
 followers = Table('user_followers', Base.metadata,
     Column('follower_id', Integer, ForeignKey('users.id'), primary_key=True),
     Column('followed_id', Integer, ForeignKey('users.id'), primary_key=True)

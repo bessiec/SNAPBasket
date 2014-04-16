@@ -1,0 +1,47 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+  
+<!--=== Breadcrumbs SNAP Info ===-->
+<div class="breadcrumbs margin-bottom-40">
+    <div class="container">
+        <h1 class="pull-left">What is SNAP?</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="{{ url_for('snap') }}">What is SNAP?</a></li>
+            <li><a href="{{ url_for('snap_statistics') }}">SNAP Statistics</a></li>
+            <li><a href="">BLS Statistics</a></li>
+            <li><a href="http://www.pinterest.com/snapbasket">Learn on Pinterest</a></li>
+            <li class="active">SNAP Information</li>
+        </ul>
+    </div>
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<!--=== Content Part ===-->
+<div class="container">		
+	<div class="row-fluid privacy">
+        <h4>What is the SNAP Program?</h4>
+        <p>Formerly known as the Food Stamps Program, the Supplemental Nutritional Assistance Program (SNAP) is a federally funded organization administered by the U.S. Department of Agriculture. Benefits are distributed at the state-level through the Division of Social Services or Children and Family Services.</p>
+                 
+        <p>SNAP is the largest nutrition assistance program in the U.S. and serves over 46 million low income individuals, or one in every seven Americans.  Eligibility standards are set nationwide and the program does not limit benefits to families with children, the elderly or the unemployed. </p>
+
+        <p>Benefits are distributed directly to individuals through a special account tied to an Electronic Benefit Transfer (EBT) card. Each month the account is debited with funds matching the participant’s needs. The EBT card functions like a debit card.  When time it is swiped, the participate enters a PIN, and cost of approved food items is deducted from the amount on the account.  SNAP benefits can be used to buy groceries or for plants and seeds to grow food, but they cannot be used to buy other items such as clothes, alcohol or cigarettes.</p>
+
+        <p>In addition to providing immediate hunger relief, the program functions as an important support for those whose wages are too low to lift them out of poverty.  75% of participants who receive benefits for a year or less, and around 40% of all participants, live in households that already have a limited grocery budget from gained-income, but these individuals rely on SNAP benefits in order to make ends meet each month.  The program has an excellent track record of effectively delivering benefits only to households that need them – <a href="http://www.fns.usda.gov/fraud/what-snap-fraud">the program has a very low rate of fraud.</a> </p>   
+
+        <em>For more detailed information on the SNAP program please see additional resources below. </em>
+
+        <ul class="list-unstyled margin-bottom-20">
+            <li><i class="icon-share color-green"></i> <a href="http://www.fns.usda.gov/snap/supplemental-nutrition-assistance-program-snap">USDA Supplemental Nutrition Assistance Program (SNAP) Website</a></li>
+            <li><i class="icon-share color-green"></i> SNAP Statistics</li>
+            <li><i class="icon-share color-green"></i> BLS Statistics </li>
+            <li><i class="icon-share color-green"></i> <a href="http://www.pinterest.com/snapbasket">Learn about SNAP on SNAPbasket's Pinterest Page</a></li>
+        </ul>      
+
+    </div><!--/row-fluid-->        
+</div><!--/container-->		
+<!--=== End Content Part ===-->
+
+{% endblock %}

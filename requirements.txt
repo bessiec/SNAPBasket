@@ -1,0 +1,12 @@
+Jinja2==2.7.2
+MarkupSafe==0.19
+SQLAlchemy==0.8.3
+Werkzeug==0.9.4
+distribute==0.6.49
+itsdangerous==0.24
+oauthlib==0.6.1
+pymongo==2.6.3
+requests==2.2.1
+requests-oauthlib==0.4.0
+virtualenv==1.10
+wsgiref==0.1.2
