@@ -5,14 +5,24 @@
 
 
 <body>
-<p><img src="{{ url_for('static', filename='css/SNAPbasket.png') }}"></p>
-
+<div class="container">
+<p><img src="static/img/snap/SNAPbasket.png"></p>
+<div class="container">
     <h1>Hi, {{g.user.nickname}}!</h1>
     <form action="" method="post" name="post">
         {{form.hidden_tag()}}
+        <h4>Please navigate this app demo using the the navbar on the upper right below the main navigation bar.  Demo functionality includes:</h4>
+        <ul class="list-unstyled margin-bottom-20">
+            <li><i class="icon-ok color-green"></i>View Stores and Prices</li>
+            <li><i class="icon-ok color-green"></i>See Shopping Lists in the System</li>
+            <li><i class="icon-ok color-green"></i>Create a Shopping List</li>
+            <li><i class="icon-ok color-green"></i>See Your Shopping Lists and Messages in Your Profile</li>
+        </ul>
+    <hr>
+    <h3> SNAP News</h3>
         <table>
             <tr>
-                <td>Do you have any tips or advice for the SNAPBasket community?</td>
+                <td>Do you have any tips or advice for the SNAPBasket community?</td><br />
                 <td>{{ form.post(size = 30, maxlength = 140) }}</td>
                 <td>
                 {% for error in form.errors.post %}
@@ -27,11 +37,13 @@
             </tr>
         </table>
     </form>
-
-
+    <hr>
+    <h3>Messages from the Community</h3>
     {% for post in posts %}
         {% include 'post.html' %}
     {% endfor %}
+
+</div>
 </body>
 </html>
 

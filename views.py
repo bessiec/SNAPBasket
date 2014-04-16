@@ -67,22 +67,25 @@ def before_request():
         models.session.add(g.user)
         models.session.commit()
 
-#The following handlers before the next break have to do with the main page
-
-
+"""The following handlers have to do with the content 
+on the company page"""
 
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template('index.html')
 
-# @app.route('/snap_info')
-# def index():
-#     return render_template('snap_info.html')
+#Handlers for snap info
 
-# @app.route('/product_research')
-# def index():
-#     return render_template('product_research.html')
+@app.route('/snap')
+def snap():
+    return render_template('whatissnap.html')
+
+@app.route('/snap_statistics')
+def snap_statistics():
+    return render_template('snap_statistics.html')
+
+#Handlers for the About Us Section
 
 @app.route('/story')
 def story():
