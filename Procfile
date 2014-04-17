@@ -1,1 +1,1 @@
-web: gunicorn views.py:app
+web: python views.py
