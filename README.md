@@ -1,6 +1,6 @@
 SNAPBasket
 ==========
 
-Open Source Project Helping LA SNAP (EBT/Food Stamp Program) Recipients Find Better Food Prices
+Project Helping LA SNAP (EBT/Food Stamp Program) Recipients Find Better Food Prices
 
-Part of USC initiative
+Part of USC Annenberg Innovation Lab Digital Innovation and Design Practicum Accelerator
