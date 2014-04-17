@@ -186,13 +186,14 @@ def after_login(resp):
     login_user(user, remember = remember_me)
     return redirect(request.args.get('next') or url_for('demo'))
 
+@app.route('/user')
 @app.route('/user/<nickname>')
 @login_required
 def user(nickname):
     user = User.query.filter_by(nickname = nickname).first()
     if user == None:
         flash('User ' + nickname + ' not found.')
-        return redirect(url_for('app'))
+        return redirect(url_for('login'))
     posts = user.posts
     baskets = models.session.query(models.Baskets).filter_by(user_id = g.user.id).all()
     return render_template('user.html',

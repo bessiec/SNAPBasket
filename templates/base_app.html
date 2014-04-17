@@ -10,8 +10,6 @@
     <title>SNAPbasket</title>
     {% endif %}
 
-    <title>SNAPbasket</title>
-
     <!-- Meta -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,18 +17,18 @@
         <meta name="author" content="">
 
         <!-- CSS Global Compulsory-->
-        <link rel="stylesheet" href="static/plugins/bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="static/css/style.css">
-        <link rel="stylesheet" href="static/css/headers/header1.css">
-        <link rel="stylesheet" href="static/css/responsive.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='plugins/bootstrap/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/headers/header1.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/responsive.css')}}">
         <link rel="shortcut icon" href="favicon.ico">        
         <!-- CSS Implementing Plugins -->    
-        <link rel="stylesheet" href="static/plugins/font-awesome/css/font-awesome.css">
-        <link rel="stylesheet" href="static/plugins/flexslider/flexslider.css">     
-        <link rel="stylesheet" href="static/plugins/parallax-slider/css/parallax-slider.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='plugins/font-awesome/css/font-awesome.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='plugins/flexslider/flexslider.css')}}"> 
+        <link rel="stylesheet" href="{{url_for('static', filename='plugins/parallax-slider/css/parallax-slider.css')}}">
         <!-- CSS Theme -->    
-        <link rel="stylesheet" href="static/css/themes/blue.css" id="style_color">
-        <link rel="stylesheet" href="static/css/themes/headers/header1-blue.css" id="style_color-header-1"> 
+        <link rel="stylesheet" href="{{url_for('static', filename='css/themes/blue.css')}}" id="style_color">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/themes/headers/header1-blue.css')}}" id="style_color-header-1">
 
       </head>
       <body>
@@ -133,12 +131,12 @@
     <div class="container">
         <h1 class="pull-left">SNAPbasket App Demo</h1>
         <ul class="pull-right breadcrumb">
-             <li class="active"><a href="{{ url_for('index') }}">Home</a>
+             <li class="active"><a href="{{ url_for('index') }}">SNAPbasket Main Page</a>
+                <li><a href="{{ url_for('user', nickname = g.user.nickname) }}">Your Profile and Shopping Lists</a></li>
                 <li><a href="/food_items">See Stores and Prices</a></l1>
                 <li><a href="/shopping_lists">See Shopping Lists </a></l1>
                       {% if g.user.is_authenticated() %}
                 <li><a href="/create_shoppinglist">Create a Shopping List</a></li>
-                <li><a href="{{ url_for('user', nickname = g.user.nickname) }}">Your Profile and Shopping List</a></li>
                 <li><a href="{{ url_for('logout') }}">Logout</a></li>
             </ul>
         {% endif %}

@@ -1,28 +1,41 @@
-{% extends "base.html" %}
-   
-      {% block content %}
+{% extends "base_app.html" %}
+{% block content %}
 
-       <h2> Create a Shopping List</h2>
+<div class="container">
+    <h3> Create a Shopping List</h3>
+        <br /> 
 
-            <form action="/make_shoppinglist">
-            	<label for="shoppinglist_name">Enter a name for your shopping list</label>
-            		<input type="text" name="shoppinglist_name" />
-
-                        <h2> Select Items </h2>
-
-                 		     <label for="select_items"> </label>
-                     			{% for item in select_item %}
-                     				<input type="checkbox" name="added_item{{item.id}}" value="{{item.id}}">
-                                    {{ item.name }} | 
-                                    Brand: {{ item.brand }} | 
-                                    Measure: {{ item.measurement }} | 
-                                    Price: {{ item.price }} | 
-                                    Store: {{ item.store_name }} | 
-                                    Location: {{ item.location }} | 
-                                    Nearest Transit: {{item.transit}} <br><br>
-                     			{% endfor %}
-                            <input type="submit">
-            </form>
+    <form action="/make_shoppinglist">
+        <h4>ADD ICON HERE Check items you'd like to add to your shopping basket and hit submit below</h4>
+            <div class="panel panel-blue margin-bottom-40">
+                <table class="table table-striped">
+                    <div class="panel-heading">                        
+                        <h3 class="panel-title"><i class="icon-edit"></i> All Items in All Stores</h3> 
+                    </div>
+                 	<label for="select_items"> </label>
+                     	  {% for item in select_item %}       
+                     	    <tr>
+                                <th>
+                             <input type="checkbox" name="added_item{{item.id}}" value="{{item.id}}">
+                                </th>
+                                <th>{{ item.name }}</th>
+                                <th>{{ item.brand }} </th>
+                                <th>{{ item.measurement }} </th>
+                                <th>{{ item.price }} </th>
+                                <th>{{ item.store_name }} </th>
+                                <th>{{ item.location }} </th>
+                                <th>{{ item.transit }} </th>
+                     	  {% endfor %}
+                            </tr>
+                </table>    
+            </div>
+    <label for="shoppinglist_name">
+        <h4>Enter a name for your shopping list</h4>
+    </label>
+        <input type="text" name="shoppinglist_name" />
+             <input type="submit" class="btn-u btn-u-blue btn-u-large">
+    </form>
+</div>
 
       
 {% endblock %}
