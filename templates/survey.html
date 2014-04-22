@@ -1,0 +1,33 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+    <div class="container">
+        <h1 class="pull-left">Product Research</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="{{ url_for('survey') }}">Survey Results</a></li>
+            <li><a href="{{ url_for('pitch') }}">Pitch Deck</a></li>
+            <li class="active"></li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<!--=== Content Part ===-->
+<div class="container">		
+    <iframe src="http://www.slideshare.net/slideshow/embed_code/33776227" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+      
+</div><!--/row-->
+
+
+
+
+
+
+
+
+{% endblock %}

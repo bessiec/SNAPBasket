@@ -1,0 +1,47 @@
+<!-- extend base layout -->
+
+{% extends "base_app.html" %}
+{% block content %}
+
+<div class="container">
+<h2>All Shopping Lists Created</h2>	
+    <div class="row">  
+      
+    </div>
+        <div class="panel panel-red margin-bottom-40"> 
+            {% for i in range(0, baskets| count) %}       
+            <table class="table table-striped">
+                <thead>
+                    <div class="panel-heading">   
+                    <h3 class="panel-title">{{ baskets[i].name }}</h3>
+                    </div>
+                   
+                        <tr>
+                            <th>Food Name</th>
+                            <th>Brand</th>
+                            <th>Store Name</th>
+                            <th>Amount</th>
+                            <th>Price</th>
+                            <th>Store Location</th>
+                            <th>Nearest Transit Stop</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            {% for j in range(0, baskets[i].basket_entries| count) %}
+                            <tr>
+                                <td>{{ baskets[i].basket_entries[j].food.name| safe }} </td>
+                                <td>{{ baskets[i].basket_entries[j].food.brand| safe }} </td>
+                                <td>{{ baskets[i].basket_entries[j].food.store_name| safe }} </td>
+                                <td>{{ baskets[i].basket_entries[j].food.measurement| safe }} </td>
+                                <td>{{ baskets[i].basket_entries[j].food.price| safe }} </td>
+                                <td>{{ baskets[i].basket_entries[j].food.location| safe }} </td>
+                                <td>{{ baskets[i].basket_entries[j].food.transit| safe }}  </td>
+                            {% endfor %}
+                    {% endfor %}
+                            </tr>
+                        </tbody>
+                </table>
+        </div>
+</div>
+
+{% endblock %}

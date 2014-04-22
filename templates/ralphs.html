@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+	{% block content %}
+
+	<h1> Ralphs </h2>
+		{% for item in ralphs_items %} 
+		  		
+		  			{{ item.name }} 
+		  			Brand: {{ item.brand }} | 
+		  			Measurement: {{ item.measurement }} | 
+		  			Price: {{ item.price }} | 
+		  			Store: {{ item.store_name }} | 
+		  			Location: {{ item.location }} | 
+		  			Nearest Transit Stop: {{item.transit}}<br><br>
+	  			
+	  	{% endfor %}
+	 {% endblock %}

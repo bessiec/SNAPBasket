@@ -1,0 +1,82 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--=== Breadcrumbs SNAP Info ===-->
+<div class="breadcrumbs margin-bottom-40">
+    <div class="container">
+        <h1 class="pull-left">SNAP Statistics</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="{{ url_for('snap') }}">What is SNAP?</a></li>
+            <li><a href="{{ url_for('snap_statistics') }}">SNAP Statistics</a></li>
+            <li><a href="http://www.pinterest.com/snapbasket">Learn on Pinterest</a></li>
+            <li class="active">SNAP Information</li>
+        </ul>
+    </div>
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+
+<!--=== Slider ===-->
+<div class="container">
+    <div class="col-md-5">
+    <div id="myCarousel" class="carousel slide carousel-v1">
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="static/img/research/Research_graphic_1.png" alt="">
+                    <div class="carousel"></div>
+            </div>
+             <div class="item">
+                <img src="static/img/research/Research_graphic_2.png" alt="">
+                    <div class="carousel"></div>
+            </div>
+            <div class="item">
+                <img src="static/img/research/Research_graphic_3.png" alt="">
+                    <div class="carousel"></div>
+            </div>
+            <div class="item">
+                <img src="static/img/research/Research_graphic_4.png" alt="">
+                    <div class="carousel"></div>
+            </div>
+            <div class="item">
+                <img src="static/img/research/Research_graphic_5.png" alt="">
+                    <div class="carousel"></div>
+            </div>    
+            <div class="item">
+                <img src="static/img/research/Research_graphic_6.png" alt="">
+                    <div class="carousel"></div>
+            </div>
+            <div class="item">
+                <img src="static/img/research/Research_graphic_7.png" alt="">
+            <div class="carousel"></div>
+            </div>
+            <div class="item">
+                <img src="static/img/research/Research_graphic_8.png" alt="">
+            <div class="carousel"></div>
+            </div>
+            <div class="item">
+                <img src="static/img/research/Research_graphic_9.png" alt="">
+            <div class="carousel"></div>
+            </div>                    
+        </div>        
+            <div class="carousel-arrow">
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <i class="icon-angle-left"></i>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <i class="icon-angle-right"></i>
+                </a>
+                <br />
+                Data from <a href="http://www.fns.usda.gov/sites/default/files/BuildingHealthyAmerica.pdf">USDA Building a Healthy America: A Profile of the Supplemental Nutrition Assistance Program</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--=== End Slider ===-->
+
+
+
+
+
+{% endblock %}

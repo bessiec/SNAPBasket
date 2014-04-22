@@ -1,0 +1,86 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+{% block content %}
+    
+
+
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+    <div class="container">
+        <h1 class="pull-left">About Us</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="{{ url_for('story') }}">Our Story</a></li>
+            <li><a href="{{ url_for('team') }}">Team</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li class="active"></li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<!-- Meer Our Team -->
+<div class="container"> 
+    <div class="centered">
+    <div class="headline"><h2>Meet Our Team</h2></div>
+    <div class="row team">
+        <div class="col-sm-3">
+            <div class="thumbnail-style">
+                <img class="img-responsive" src="static/img/team/About_Image_Bessieheadshot.jpg" alt="" />
+                <h3><a>Bessie Chu</a> <small>Co-founder/Technical Lead</small></h3>
+                <p>Bessie worked in Silicon Valley for five years in a  ofvariety strategic and technical roles in the start-up, ad agency, and corporate worlds.  She is currently pursuing a Master of Communication Management at the USC concentrating in New Communication Technologies and International Communication with a research focus on social media conversations and Big Data around sports advertisers and the World Cup.</p>
+                <ul class="list-unstyled list-inline team-socail">
+                    <li><a href="http://www.twitter.com/bessiec"><i class="icon-twitter"></i></a></li>
+                    <li><a href="http://www.linkedin.com/in/chubessie"><i class="icon-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail-style">
+                <img class="img-responsive" src="static/img/team/About_Image_Catieheadshot.jpg" alt="" />
+                <h3><a>Catie Peiper</a> <small>Co-founder/Partnerships</small></h3>
+                <p>Catie is a first year Ph.D student at the USC School of Cinematic Arts in the Bryan Singer Division of Critical Studies. The inspiration for SNAPbasket began several years ago when the majority of Catie's monthly food budget depended on SNAP benefits; frustrated by the inequalities in local grocery pricing and the unpredictability of food inflation, she began compiling the pricing data for her local grocery stores that eventually became the early concept for SNAPbasket. Her goal, which is shared by the entire SNAPbaket team, is to make this data more easy collected and accessed, so that individuals working with limited budgets or who are dependent on SNAP benefits may be able to make the most of every dollar spent on food. 
+</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail-style">
+                <img class="img-responsive" src="static/img/team/About_Image_Gabeheadshot.jpg" alt="" />
+                <h3><a>Gabriel Shapiro</a> <small>Co-founder/Business Development</small></h3>
+                <p>Gabriel is a second year student pursuing a Masters in Public Diplomacy at the USC. His research is primarily focused on building metrics for successful communication and developing research design to understand how individuals interact with technology on a daily basis. Prior to SNAPbasket Gabriel worked as a researcher at the Center for Communication, Leadership &amp; Policy and as a media strategist and designer for the news agency Syria Direct. </p>
+                <ul class="list-unstyled list-inline team-socail">
+                    <li><a href="http://www.linkedin.com/pub/gabriel-bernadett-shapiro/89/263/624"><i class="icon-linkedin"></i></a>
+                </ul>
+            </div>
+        </div>
+    </div><!--/team-->
+    <!-- End Meer Our Team -->
+
+
+
+
+     <!-- Our Clients -->
+    <div id="clients-flexslider" class="flexslider home clients">
+        <div class="headline"><h2>Our Partners</h2></div>  
+        <ul class="slides">
+            <li>
+                <a href="http://www.hungeractionla.org">
+                    <img src="static/img/partners/Aboutus_Image_HALA.png" alt="" /> 
+                    <small>Hunger Action LA</small>
+
+                </a>
+            </li>
+            <li>
+                <a href="http://www.annenberglab.com">
+                    <img src="static/img/partners/Aboutus_Image_AnnenbergInnovationLab.png" alt="" /> 
+                    <small>USC Annenberg Innovation Lab</small>
+                </a>
+            </li>
+        </ul>
+    </div><!--/flexslider-->
+    <!-- //End Our Clients -->
+</div>
+
+
+
+
+{% endblock %}

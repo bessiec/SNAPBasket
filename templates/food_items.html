@@ -1,0 +1,48 @@
+
+{% extends "base_app.html" %}
+	{% block content %}
+
+	<div class="container">	 		
+		<h2>Staple Selections</h2>	
+
+
+	  	  <h4>List of food items, prices, and store locations currently in the database.</h4>
+
+	  	  		<div class="panel panel-green margin-bottom-40">
+	  	  			<div class="panel-heading">
+	  	  				<h3 class="panel-title">All Items</h3>
+	  	  			</div>
+	  	  			<table class="table table-striped">
+	  	  				<thead>
+			                <tr>
+			                    <th>Food Name</th>
+			                    <th>Brand</th>
+			                    <th>Store Name</th>
+			                    <th>Amount</th>
+			                    <th>Price</th>
+			                    <th>Store Location</th>
+			                    <th>Nearest Transit Stop</th>
+			                </tr>
+            			</thead>
+						 <tbody>
+							{% for item in all_items %} 
+						 	<tr>
+							  	<td>{{ item.name }} </td> 
+							  	<td>{{ item.brand }}</td>
+							  	<td>{{ item.measurement }}</td>
+							  	<td>{{ item.price }}</td>
+							  	<td>{{ item.store_name }}</td>
+							  	<td>{{ item.location }}</td>
+							  	<td>{{item.transit}}</td><p>
+			  				</tr>
+			  				{% endfor %}
+			  			</tbody>
+					</table>
+				</div>
+
+	</div>
+
+
+
+
+	{% endblock %}

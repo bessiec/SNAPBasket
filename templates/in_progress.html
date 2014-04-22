@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+
+   <!-- CSS Page Style -->    
+    <link rel="stylesheet" href="assets/css/pages/page_coming_soon.css">    
+
+<body class="coming-soon-page">
+
+    <div class="coming-soon-border"></div>
+    <!--=== Content Part ===-->    
+        <div class="container">
+            <!-- Coming Soon Content -->
+            <div class="row">
+                <div class="col-md-12 coming-soon">
+                    <h1 style="color:white">Forthcoming</h1>
+                    <p style="color:white">We're working on making this great.</p><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<!--=== End Content Part ===-->
+
+<!-- JS Global Compulsory -->           
+<script type="text/javascript" src="static/plugins/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="static/plugins/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="static/plugins/bootstrap/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="static/plugins/hover-dropdown.min.js"></script> 
+<script type="text/javascript" src="static/plugins/back-to-top.js"></script>
+<!-- JS Implementing Plugins -->           
+<script type="text/javascript" src="static/plugins/countdown/jquery.countdown.js"></script>
+<script type="text/javascript" src="static/plugins/backstretch/jquery.backstretch.min.js"></script>
+<!-- JS Page Level -->           
+<script type="text/javascript" src="static/js/app.js"></script>
+
+<script>
+    $.backstretch([
+      "static/img/bg/1.jpg",
+      "static/img/bg/3.jpg",
+      "static/img/bg/2.jpg"
+      ], {
+        fade: 1000,
+        duration: 7000
+    });
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        var austDay = new Date();
+        austDay = new Date(austDay.getFullYear() + 1, 1 - 1, 26);
+        $('#defaultCountdown').countdown({until: austDay});
+        $('#year').text(austDay.getFullYear());
+    });
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+    });
+</script>
+<!--[if lt IE 9]>
+    <script src="static/plugins/respond.js"></script>
+<![endif]-->
+
+{% endblock %}

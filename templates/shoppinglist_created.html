@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+Shopping list successfully created! 
+
+Check out your playlist on your <a href="{{ url_for('user', nickname = g.user.nickname) }}">user page</a> or in the <a href="/shoppinglists.html">See All Sample Shopping Lists</a> section of the site.  
+
+
+
+{% endblock %}

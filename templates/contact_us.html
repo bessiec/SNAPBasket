@@ -1,0 +1,50 @@
+<!--- extend base layout -->
+{% extends "base.html" %}
+{% block content %}
+
+
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+    <div class="container">
+        <h1 class="pull-left">Contact</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="{{ url_for('story') }}">Our Story</a></li>
+            <li><a href="{{ url_for('team') }}">Team</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li class="active"></li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+
+
+<!-- End Google Map -->
+
+
+<!--=== Content Part ===-->
+<div class="container">     
+    <div class="row margin-bottom-30">
+        <div class="col-md-9 mb-margin-bottom-30">
+            <!-- Google Map -->
+            <div id="map" class="map map-box map-box-space1 margin-bottom-40">            
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d6613.635077731018!2d-118.2891302!3d34.0228942!3m2!1i1024!2i768!4f13.1!2m1!1susc+annenberg+!5e0!3m2!1sen!2sus!4v1397542782052" width="800" height="300" frameborder="0" style="border:0"></iframe>
+            </div><!---/map-->
+            <!-- End Google Map -->
+
+                    <h3>We are looking for smart partnerships to move our vision forward.  Please e-mail us with questions at <a href="mailto:snapbasketapp@gmail.com">snapbasketapp@gmail.com</a>.</strong></h3>
+
+        </div><!--/col-md-9-->        
+        
+        <div class="col-md-3">
+                <!-- Contacts -->
+                <div class="headline"><h2>Contact</h2></div>
+                <ul class="list-unstyled who margin-bottom-30">
+                    <li><a href="mailto:snapbasketapp@gmail.com"><i class="icon-envelope-alt"></i>snapbasketapp@gmail.com</a></li>
+                    <li><a href="http://www.snapbasket.co"><i class="icon-globe"></i>http://www.snapbasket.co</a></li>
+                </ul>
+                <!-- End Contacts -->
+        </div><!--/col-md-3-->
+    </div>    
+</div>
+{% endblock %}

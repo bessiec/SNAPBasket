@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+
+  <head>
+    {% if title %}
+    <title>{{title}} | SNAPbasket</title>
+    {% else %}
+    <title>SNAPbasket</title>
+    {% endif %}
+
+    <!-- Meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- CSS Global Compulsory-->
+        <link rel="stylesheet" href="{{url_for('static', filename='plugins/bootstrap/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/headers/header1.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/responsive.css')}}">
+        <link rel="shortcut icon" href="favicon.ico">        
+        <!-- CSS Implementing Plugins -->    
+        <link rel="stylesheet" href="{{url_for('static', filename='plugins/font-awesome/css/font-awesome.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='plugins/flexslider/flexslider.css')}}"> 
+        <link rel="stylesheet" href="{{url_for('static', filename='plugins/parallax-slider/css/parallax-slider.css')}}">
+        <!-- CSS Theme -->    
+        <link rel="stylesheet" href="{{url_for('static', filename='css/themes/blue.css')}}" id="style_color">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/themes/headers/header1-blue.css')}}" id="style_color-header-1">
+
+      </head>
+      <body>
+
+<!--=== Top ===-->    
+<div class="top">
+    <div class="container">         
+        <ul class="loginbar pull-right">
+            <li class="devider"></li>   
+            <li><a href="{{ url_for('login') }}">Login to App Demo</a></li>   
+        </ul>
+    </div>      
+</div><!--/top-->
+<!--=== End Top ===-->    
+
+  <!--=== Header ===-->    
+<div class="header">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('index') }}">
+                    <img id="logo-header" src="{{url_for('static', filename='img/snap/Index_image_logo(simp).png') }}">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                            App Demo
+                            <i class="icon-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="active"><a href="{{ url_for('login') }}">Check Out App Demo</a></li>
+                            <li class="active"><a href="{{ url_for('in_progress') }}">App Roadmap</a></li>
+                        </ul>
+                    </li>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                            What is SNAP?
+                            <i class="icon-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('snap') }}">What is SNAP Program?</a></li>
+                            <li><a href="{{ url_for('snap_statistics') }}">SNAP Statistics</a></li>
+                            <li><a href="{{ url_for('in_progress') }}">Bureau of Labor Statistic Summary</a></li>
+                            <li><a href="http://www.pinterest.com/snapbasket/">Learn about SNAP on Pinterest</a></li>
+                        </ul>
+                    </li>
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                            Product Research
+                            <i class="icon-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('survey') }}">User Surveys</a></li>
+                            <li><a href="{{ url_for('in_progress') }}">Focus Groups</a></li>
+                            <li><a href="{{ url_for('pitch') }}">Pitch Deck</a></li>
+                        </ul>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                            About Us 
+                            <i class="icon-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('story') }}">Our Story</a></li>
+                            <li><a href="{{ url_for('team') }}">Team</a></li>
+                            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+                        </ul>
+                    </li>                    
+                </ul>
+                <div class="search-open">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+                            <button class="btn-u" type="button">Go</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div>                
+            </div><!-- /navbar-collapse -->
+        </div>    
+    </div>    
+</div><!--/header-->
+<!--=== End Header ===-->    
+
+
+
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+    <div class="container">
+        <h1 class="pull-left">SNAPbasket App Demo</h1>
+        <ul class="pull-right breadcrumb">
+             <li class="active"><a href="{{ url_for('index') }}">SNAPbasket Main Page</a>
+                <li><a href="{{ url_for('user', nickname = g.user.nickname) }}">Your Profile and Shopping Lists</a></li>
+                <li><a href="/food_items">See Stores and Prices</a></l1>
+                <li><a href="/shopping_lists">See Shopping Lists </a></l1>
+                      {% if g.user.is_authenticated() %}
+                <li><a href="/create_shoppinglist">Create a Shopping List</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        {% endif %}
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}s
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+
+
+
+
+<!--=== Footer ===-->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 md-margin-bottom-40">
+                <!-- About -->
+                <div class="headline"><h2>About</h2></div>  
+                <p class="margin-bottom-25 md-margin-bottom-40">We are a group of USC graduate students on a mission for smart shopping.</p>    
+            </div><!--/col-md-4-->  
+            
+            <div class="col-md-4 md-margin-bottom-40">
+                 <div class="headline"><h2>Contact Us</h2></div>    
+                      <address class="md-margin-bottom-40">
+                        Email: <a href="mailto:snapbasketapp@gmail.com" class="">snapbasketapp@gmail.com</a>
+                     </address>
+
+            </div><!--/col-md-4-->
+
+            <div class="col-md-4">
+                <!-- Stay Connected -->
+                <div class="headline"><h2>Social</h2></div> 
+                <ul class="social-icons">
+                    <li><a href="http://www.pinterest.com/snapbasket" data-original-title="Pinterest" class="social_pintrest"></a></li>
+                    <li><a href="#" data-original-title="Vimeo" class="social_vimeo"></a></li>
+                </ul>
+            </div><!--/col-md-4-->
+        </div><!--/row-->   
+    </div><!--/container--> 
+</div><!--/footer-->    
+<!--=== End Footer ===-->
+
+<!--=== Copyright ===-->
+<div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">                      
+                <p class="copyright-space">
+                    2014 &copy; SNAPbasket <br />
+                    <small>We are not affiliated with the SNAP Benefits program.  We believe using the word SNAP in the project title constitutes a 'fair use' of any such copyrighted material as provided for in section 107 of the US Copyright Law. In accordance with Title 17 U.S.C. Section 107, the material on this site is distributed without profit as a conceptual project for research and educational purposes. </small>
+
+                </p>
+            </div>
+            <div class="col-md-6">  
+                <a href="{{ url_for('index') }}">
+                    <img id="logo-footer" src="static/img/snap/Index_image_logo(simp).png" class="pull-right" alt="" />
+                </a>
+            </div>
+        </div><!--/row-->
+    </div><!--/container--> 
+</div><!--/copyright--> 
+<!--=== End Copyright ===-->
+
+          <!---calling jQuery CDN and back-up -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+
+
+
+<!-- JS Global Compulsory -->           
+    <script type="text/javascript" src="static/plugins/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="static/plugins/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="static/plugins/bootstrap/js/bootstrap.min.js"></script> 
+    <script type="text/javascript" src="static/plugins/hover-dropdown.min.js"></script> 
+    <script type="text/javascript" src="static/plugins/back-to-top.js"></script>
+    <!-- JS Implementing Plugins -->           
+    <script type="text/javascript" src="static/plugins/flexslider/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="static/plugins/parallax-slider/js/modernizr.js"></script>
+    <script type="text/javascript" src="static/plugins/parallax-slider/js/jquery.cslider.js"></script> 
+    <!-- JS Page Level -->           
+    <script type="text/javascript" src="static/js/app.js"></script>
+    <script type="text/javascript" src="static/js/pages/index.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            App.init();
+            App.initSliders();
+            Index.initParallaxSlider();
+        });
+    </script>
+<!--[if lt IE 9]>
+    <script src="static/plugins/respond.js"></script>
+<![endif]-->
+
+  </body>
+</html>
